@@ -129,7 +129,7 @@ def login():
         message['correlation_id'] = 'null'
         message['response_id'] = 'dfc1be0d-ca4f-4a98-bb71-bad846434f8d'
     elif x_tif_serviceId == 'D1593590066290':  # 归档电子文件
-        message['data'] = {"file_name": "44000016D000020.pdf", "file_data": pdf_file_data}
+        message['data'] = {"file_name": "44000016D000020.pdf", "file_data": str(pdf_file_data, encoding='utf-8')}
     logger.info('返回数据 {}'.format(message))
     return make_response(jsonify(message), 200)
 
