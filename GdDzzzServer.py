@@ -110,8 +110,9 @@ def login():
         message['access_token'] = '1234567890'
         message['correlation_id'] = 'null'
         message['response_id'] = 'dfc1be0d-ca4f-4a98-bb71-bad846434f8d'
-        message['data'] = {'license_code': '440000201800000001',
-                           'auth_code': '440200106000201180103110507XCV7'}
+        license_code = '440000{}'.format(int(time.time() * 100))
+        message['data'] = {'license_code': license_code,
+                           'auth_code': '{}103110507XCV7'.format(license_code)}
     elif x_tif_serviceId == 'D1597132425087':  # 签发一张证照
         message['sign'] = 'null'
         message['sign_method'] = 'null'
